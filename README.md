@@ -45,7 +45,9 @@ Only these addresses are FAR's. Anything else using the name is not ours.
 | Uniswap v3 FARO/WETH pool | [`0x0fFd233bAb03e4aA7eE21C2002bDf0f81b6aA8Ee`](https://basescan.org/address/0x0fFd233bAb03e4aA7eE21C2002bDf0f81b6aA8Ee) |
 | LP lock (until 2028-11-04) | [`0x8EA12076963305d8f6A1c9Ee58FeDC54a3fA1785`](https://basescan.org/address/0x8EA12076963305d8f6A1c9Ee58FeDC54a3fA1785) |
 | Team vesting | [`0x4c2225fefD23305D84C6ef70f9fc500310f6bF84`](https://basescan.org/address/0x4c2225fefD23305D84C6ef70f9fc500310f6bF84) |
-| Lock FARO for Pro | [`0xAfD7189fd506D018cE45Bd4898E70ceE62E8E8a4`](https://basescan.org/address/0xAfD7189fd506D018cE45Bd4898E70ceE62E8E8a4) |
+| Lock FARO for Pro (current) | [`0x8ef6B34D655fa5ba537b751f0df119386C9b9E44`](https://basescan.org/address/0x8ef6B34D655fa5ba537b751f0df119386C9b9E44) |
+| Lock FARO for Pro (v1, earlier locks) | [`0xAfD7189fd506D018cE45Bd4898E70ceE62E8E8a4`](https://basescan.org/address/0xAfD7189fd506D018cE45Bd4898E70ceE62E8E8a4) |
+| Pay with FARO (Pro checkout) | [`0x3498c074FC6f762806E37F9975f6A30BB94b62Ab`](https://basescan.org/address/0x3498c074FC6f762806E37F9975f6A30BB94b62Ab) |
 | FAR Pro Access (NFT) | [`0x1d7EE6FaE83867A572b041Fe7019a93127094D15`](https://basescan.org/address/0x1d7EE6FaE83867A572b041Fe7019a93127094D15) |
 | FAR Radar Pass (NFT) | [`0x65ba24ef735a488ad6664fC97552Bbe35b48082f`](https://basescan.org/address/0x65ba24ef735a488ad6664fC97552Bbe35b48082f) |
 | FAR Fortune (NFT) | [`0x0257589B3C976c31206d109870b1322d1A59E841`](https://basescan.org/address/0x0257589B3C976c31206d109870b1322d1A59E841) |
@@ -54,7 +56,7 @@ Only these addresses are FAR's. Anything else using the name is not ours.
 | Fortune Mining | [`0x272E7E09Cf5EB17FD90aF1b3e77DA9dFBAaa29a7`](https://basescan.org/address/0x272E7E09Cf5EB17FD90aF1b3e77DA9dFBAaa29a7) |
 | FAR NFT Market | [`0xCCde1562eF1d87bCBE3fE3B65Ef149bE1BC0477E`](https://basescan.org/address/0xCCde1562eF1d87bCBE3fE3B65Ef149bE1BC0477E) |
 
-More on https://www.faractionradar.com/token
+Full list with copy buttons: https://www.faractionradar.com/contracts
 
 ## Contact
 
