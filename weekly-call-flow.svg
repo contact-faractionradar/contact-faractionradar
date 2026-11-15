@@ -1,39 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" width="960" height="250" role="img" aria-label="How a weekly call is recorded on Base">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" width="960" height="250" role="img" aria-label="How a weekly call ends up on Base">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#fff1c2"/>
       <stop offset="0.45" stop-color="#e8c06a"/>
       <stop offset="1" stop-color="#a8761f"/>
     </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
+  <style>
+    /* one 8 s loop: each step lights up in turn, a pulse runs along the arrows */
+    .flow { stroke-dasharray: 5 5; animation: flow 1s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset: -10; } }
+    .card { animation: lit 8s ease-in-out infinite; }
+    .c2 { animation-delay: 2s; } .c3 { animation-delay: 4s; } .c4 { animation-delay: 6s; }
+    @keyframes lit {
+      0%, 22%, 100% { stroke: #2b2210; stroke-width: 1.6; }
+      6%, 16% { stroke: #c9983f; stroke-width: 3; }
+    }
+    .halo { opacity: 0; animation: halo 8s ease-in-out infinite; }
+    .h2 { animation-delay: 2s; } .h3 { animation-delay: 4s; } .h4 { animation-delay: 6s; }
+    @keyframes halo { 0%, 22%, 100% { opacity: 0; } 6%, 16% { opacity: 0.55; } }
+    .pulse { animation: run 8s linear infinite; }
+    @keyframes run {
+      0% { transform: translateX(0); opacity: 0; } 3% { opacity: 1; }
+      22% { transform: translateX(80px); opacity: 1; } 25% { transform: translateX(80px); opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .p2 { animation-delay: 2s; } .p3 { animation-delay: 4s; }
+    .chip text { opacity: 0; animation: chip 6s steps(1) infinite; }
+    .chip .t2 { animation-delay: 2s; } .chip .t3 { animation-delay: 4s; }
+    @keyframes chip { 0% { opacity: 1; } 33.3% { opacity: 0; } }
+    .tick { stroke-dasharray: 30; stroke-dashoffset: 30; animation: tick 8s ease-out infinite; animation-delay: 4s; }
+    @keyframes tick { 0% { stroke-dashoffset: 30; } 8%, 90% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 30; } }
+    .line { stroke-dasharray: 70; stroke-dashoffset: 70; animation: draw 8s ease-out infinite; animation-delay: 6s; }
+    @keyframes draw { 0% { stroke-dashoffset: 70; } 12%, 90% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 70; } }
+    .dot { animation: blink 1.6s ease-in-out infinite; }
+    .dot.b { animation-delay: 0.5s; } .dot.c { animation-delay: 1s; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .chip .t1 { opacity: 1; } .tick, .line { stroke-dashoffset: 0; } }
+  </style>
   <rect width="960" height="250" rx="16" fill="#f7f1e3"/>
   <rect x="0.75" y="0.75" width="958.5" height="248.5" rx="15.5" fill="none" stroke="#d8c08a"/>
   <text x="480" y="38" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#2b2210">How a weekly call ends up on Base</text>
   <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" text-anchor="middle">
-    <!-- connectors -->
-    <path d="M196 120 H260 M436 120 H500 M676 120 H740" stroke="#c9983f" stroke-width="2" stroke-dasharray="5 5"/>
+    <!-- connectors with a moving dash and a travelling pulse -->
+    <path class="flow" d="M196 120 H260 M436 120 H500 M676 120 H740" stroke="#c9983f" stroke-width="2"/>
     <path d="M254 114 L262 120 L254 126 M494 114 L502 120 L494 126 M734 114 L742 120 L734 126" fill="none" stroke="#c9983f" stroke-width="2"/>
+    <circle class="pulse p1" cx="186" cy="120" r="6" fill="url(#g)" filter="url(#glow)"/>
+    <circle class="pulse p2" cx="426" cy="120" r="6" fill="url(#g)" filter="url(#glow)"/>
+    <circle class="pulse p3" cx="666" cy="120" r="6" fill="url(#g)" filter="url(#glow)"/>
+    <!-- glow behind the active card -->
+    <rect class="halo h1" x="30" y="58" width="172" height="124" rx="18" fill="#e8c06a" filter="url(#glow)"/>
+    <rect class="halo h2" x="270" y="58" width="172" height="124" rx="18" fill="#e8c06a" filter="url(#glow)"/>
+    <rect class="halo h3" x="510" y="58" width="172" height="124" rx="18" fill="#e8c06a" filter="url(#glow)"/>
+    <rect class="halo h4" x="750" y="58" width="172" height="124" rx="18" fill="#e8c06a" filter="url(#glow)"/>
     <!-- 1 engines -->
-    <rect x="36" y="64" width="160" height="112" rx="14" fill="#fffdf8" stroke="#2b2210" stroke-width="1.6"/>
-    <circle cx="80" cy="102" r="14" fill="#d9a441"/><text x="80" y="107" font-size="12" font-weight="700" fill="#1a1409">Au</text>
-    <circle cx="116" cy="102" r="14" fill="#f7931a"/><text x="116" y="107" font-size="12" font-weight="700" fill="#fff">₿</text>
-    <circle cx="152" cy="102" r="14" fill="#5b3a1e"/><text x="152" y="107" font-size="11" font-weight="700" fill="#f3e3c8">OIL</text>
+    <rect class="card c1" x="36" y="64" width="160" height="112" rx="14" fill="#fffdf8" stroke="#2b2210" stroke-width="1.6"/>
+    <g class="dot a"><circle cx="80" cy="102" r="14" fill="#d9a441"/><text x="80" y="107" font-size="12" font-weight="700" fill="#1a1409">Au</text></g>
+    <g class="dot b"><circle cx="116" cy="102" r="14" fill="#f7931a"/><text x="116" y="107" font-size="12" font-weight="700" fill="#fff">₿</text></g>
+    <g class="dot c"><circle cx="152" cy="102" r="14" fill="#5b3a1e"/><text x="152" y="107" font-size="11" font-weight="700" fill="#f3e3c8">OIL</text></g>
     <text x="116" y="146" font-size="14" font-weight="700" fill="#2b2210">Three engines</text>
     <text x="116" y="164" font-size="11.5" fill="#6b5a3a">NORTH · AXIS · RIG</text>
-    <!-- 2 call -->
-    <rect x="276" y="64" width="160" height="112" rx="14" fill="#fffdf8" stroke="#2b2210" stroke-width="1.6"/>
-    <rect x="316" y="86" width="80" height="30" rx="7" fill="url(#g)"/><text x="356" y="106" font-size="13" font-weight="700" fill="#1a1409">LONG</text>
+    <!-- 2 call: the chip cycles LONG, SHORT, FLAT -->
+    <rect class="card c2" x="276" y="64" width="160" height="112" rx="14" fill="#fffdf8" stroke="#2b2210" stroke-width="1.6"/>
+    <rect x="316" y="86" width="80" height="30" rx="7" fill="url(#g)"/>
+    <g class="chip" font-size="13" font-weight="700" fill="#1a1409">
+      <text class="t1" x="356" y="106">LONG</text>
+      <text class="t2" x="356" y="106">SHORT</text>
+      <text class="t3" x="356" y="106">FLAT</text>
+    </g>
     <text x="356" y="146" font-size="14" font-weight="700" fill="#2b2210">One call a week</text>
     <text x="356" y="164" font-size="11.5" fill="#6b5a3a">LONG, SHORT or FLAT</text>
-    <!-- 3 recorded -->
-    <rect x="516" y="64" width="160" height="112" rx="14" fill="#fffdf8" stroke="#2b2210" stroke-width="1.6"/>
-    <circle cx="596" cy="101" r="17" fill="#0052ff"/><path d="M588 101 l6 6 l11 -12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 3 recorded: the check draws itself -->
+    <rect class="card c3" x="516" y="64" width="160" height="112" rx="14" fill="#fffdf8" stroke="#2b2210" stroke-width="1.6"/>
+    <circle cx="596" cy="101" r="17" fill="#0052ff"/>
+    <path class="tick" d="M588 101 l6 6 l11 -12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     <text x="596" y="146" font-size="14" font-weight="700" fill="#2b2210">Written to Base</text>
     <text x="596" y="164" font-size="11.5" fill="#6b5a3a">when it is published</text>
-    <!-- 4 result -->
-    <rect x="756" y="64" width="160" height="112" rx="14" fill="#fffdf8" stroke="#2b2210" stroke-width="1.6"/>
+    <!-- 4 result: the line traces -->
+    <rect class="card c4" x="756" y="64" width="160" height="112" rx="14" fill="#fffdf8" stroke="#2b2210" stroke-width="1.6"/>
     <rect x="806" y="84" width="60" height="38" rx="5" fill="#f2e6cc" stroke="#c9983f"/>
-    <path d="M814 112 l10 -10 l9 6 l13 -14 l12 8" fill="none" stroke="#2b2210" stroke-width="2"/>
+    <path class="line" d="M814 112 l10 -10 l9 6 l13 -14 l12 8" fill="none" stroke="#2b2210" stroke-width="2"/>
     <text x="836" y="146" font-size="14" font-weight="700" fill="#2b2210">Result added</text>
     <text x="836" y="164" font-size="11.5" fill="#6b5a3a">when the week closes</text>
   </g>

@@ -15,6 +15,16 @@
       <stop offset="1" stop-color="#e8c06a" stop-opacity="0.32"/>
     </linearGradient>
   </defs>
+  <style>
+    .sweep { transform-origin: 0px 0px; animation: spin 6s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .blip { animation: blip 3s ease-in-out infinite; }
+    .blip.b { animation-delay: 1s; } .blip.c { animation-delay: 2s; }
+    @keyframes blip { 0%, 100% { opacity: 0.25; } 40% { opacity: 1; } }
+    .ring { animation: ring 3s ease-out infinite; transform-origin: 52px -38px; }
+    @keyframes ring { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(2.2); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .sweep, .blip, .ring { animation: none; } }
+  </style>
   <rect width="1280" height="320" rx="18" fill="url(#bg)"/>
   <rect x="1.5" y="1.5" width="1277" height="317" rx="17" fill="none" stroke="#a8761f" stroke-opacity="0.55" stroke-width="1.5"/>
   <!-- radar on the right -->
@@ -24,11 +34,11 @@
     <circle r="64" fill="none" stroke="#e8c06a" stroke-opacity="0.26"/>
     <circle r="30" fill="none" stroke="#e8c06a" stroke-opacity="0.34"/>
     <path d="M-132 0 H132 M0 -132 V132" stroke="#e8c06a" stroke-opacity="0.12"/>
-    <path d="M0 0 L132 0 A132 132 0 0 0 93 -93 Z" fill="url(#sweep)"/>
-    <circle cx="52" cy="-38" r="5" fill="#e8c06a"/>
-    <circle cx="52" cy="-38" r="11" fill="none" stroke="#e8c06a" stroke-opacity="0.45"/>
-    <circle cx="-70" cy="44" r="4" fill="#d9a441" fill-opacity="0.75"/>
-    <circle cx="18" cy="96" r="3.5" fill="#d9a441" fill-opacity="0.6"/>
+    <path class="sweep" d="M0 0 L132 0 A132 132 0 0 0 93 -93 Z" fill="url(#sweep)"/>
+    <circle class="blip a" cx="52" cy="-38" r="5" fill="#e8c06a"/>
+    <circle class="ring" cx="52" cy="-38" r="11" fill="none" stroke="#e8c06a" stroke-opacity="0.6"/>
+    <circle class="blip b" cx="-70" cy="44" r="4" fill="#d9a441" fill-opacity="0.75"/>
+    <circle class="blip c" cx="18" cy="96" r="3.5" fill="#d9a441" fill-opacity="0.6"/>
     <circle r="5" fill="url(#gold)"/>
   </g>
   <!-- wordmark -->

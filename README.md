@@ -28,6 +28,10 @@ Weekly gold, bitcoin and oil calls recorded on Base, NFT collectibles and onchai
 
 🔮 **Prophecy.** Make your own weekly call with a card: [faractionradar.com/prophecy](https://www.faractionradar.com/prophecy).
 
+<p align="center">
+  <a href="https://www.faractionradar.com/fortune"><img src="card-universe.svg" width="100%" alt="The FAR Fortune card universe on Base"></a>
+</p>
+
 ## Faro ($FARO)
 
 The access token of FAR Action Radar, on Base.
